@@ -1,0 +1,14 @@
+{
+  "name": "package",
+  "version": "0.0.0",
+  "dependencies": {
+    "cytoscape": "=2.1.0",
+    "bootstrap": "=3.1.1",
+    "jquery": "=1.8.2",
+    "swagger-js": "wordnik/swagger-js#~2.0.36",
+    "fontawesome": "~4.1.0"
+  },
+  "resolutions": {
+    "jquery": "=1.8.2"
+  }
+}
