@@ -42,6 +42,7 @@ module.exports = function(grunt) {
       livereload: {
         files: [
           'index.html',
+          'lib/*.js',
           '<%= config.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
           '<%= config.app %>/images/{,*/}*'
@@ -67,6 +68,7 @@ module.exports = function(grunt) {
           middleware: function(connect) {
             return [
               connect.static('.tmp'),
+              connect.static('lib'),
               connect().use('/bower_components', connect.static('./bower_components')),
               connect.static(config.app)
             ];
@@ -108,6 +110,7 @@ module.exports = function(grunt) {
       },
       all: [
         'Gruntfile.js',
+        'lib/*.js',
         '<%= config.app %>/scripts/{,*/}*.js',
         '!<%= config.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
