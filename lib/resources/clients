@@ -27,7 +27,7 @@
                             "paramType": "body",
                             "required": true,
                             "type": "ClientRequest",
-                            "defaultValue": "{\n\t\"name\": \"test-client\",\n\t\"description\": \"This is a demo client I created to kick around the APIs.\",\n\t\"tier\": \"UNLIMITED\",\n\t\"callbackUrl\": null\n}"
+                            "defaultValue": "{\n\t\"clientName\": \"\",\n\t\"description\": \"\",\n\t\"tier\": \"UNLIMITED\",\n\t\"callbackUrl\": null\n}"
                         }
                     ],
                     "responseMessages": [
@@ -196,7 +196,7 @@
             "id": "ClientRequest",
             "name": "",
             "properties": {
-                "name": {
+                "clientName": {
                     "description": "The name of the client.",
                     "type": "string",
                     "required": true

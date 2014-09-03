@@ -25,7 +25,23 @@
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">AIP</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="https://www.araport.org/sites/all/themes/custom/araport-theme/images/AIP-logo.svg" class="img-responsive" style="height: 42px; margin-top: -10px;">
+          <span class="sr-only">AIP</span>
+        </a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://araport.org" target="_blank">Araport.org <i class="fa fa-external-link"></i></a></li>
+          <li><a href="https://api.araport.org" target="_blank">Araport API Store <i class="fa fa-external-link"></i></a></li>
+          <li><a href="http://agaveapi.co" target="_blank">Agave Documentation <i class="fa fa-external-link"></i></a></li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -37,53 +53,12 @@
   </header>
 
   <div class="api-credentials container">
-    <div class="pull-right">
-      <button type="button" class="btn btn-link" name="toggleTokenForm"><i class="fa fa-key"></i></button>
-    </div>
-    <div class="token-form">
-      <h4>Get an API token</h4>
-      <p>
-        In order to use any APIs secured by Agave, you will need to get an API
-        token. If you have already created an API client, please enter the key
-        and secret below, as well as your API username and password. Then click
-        &quot;Get Token&quot;.
-      </p>
-      <form method="post" name="agaveApiTokenForm">
-        <div class="form-group">
-          <input name="consumerKey" type="text" class="form-control" placeholder="Consumer Key">
-        </div>
-
-        <div class="form-group">
-          <input name="consumerSecret" type="text" class="form-control" placeholder="Consumer Secret">
-        </div>
-
-        <div class="form-group">
-          <input name="username" type="text" class="form-control" placeholder="Username">
-        </div>
-
-        <div class="form-group">
-          <input name="password" type="password" class="form-control" placeholder="Password">
-        </div>
-
-        <input type="hidden" name="grant_type" value="password">
-        <input type="hidden" name="scope" value="PRODUCTION">
-
-        <div class="form-actions">
-          <button type="submit" name="agaveApiTokenFormSubmit" class="btn btn-success">Get Token</button>
-          <button type="button" name="agaveApiTokenFormClear" class="btn btn-danger">Clear Credentials</button>
-          <a href="#" class="btn btn-link">Don't have an API Client? Click here!</a>
-        </div>
-      </form>
-    </div>
-    <div>
-      <h4>API token</h4>
-      <div class="current-token"><p><span class="label label-danger">invalid</span></p></div>
-    </div>
+    include "/lib/api-client-auth.html"
     <hr>
   </div>
 
   <div class="aip-science-app container">
-    include "app/app.html"
+    include "/app/app.html"
   </div>
 
   <script src="test-runner.js"></script>
