@@ -62,6 +62,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           livereload: false,
+          hostname: '0.0.0.0',
           middleware: function(connect) {
             return [
               connect.static('.tmp'),
