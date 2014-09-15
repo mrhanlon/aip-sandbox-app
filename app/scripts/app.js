@@ -1,9 +1,9 @@
 (function(window, $, undefined) {
   'use strict';
 
-  console.log('Hello, testapp!');
+  console.log('Hello, sandbox-app!');
 
-  var appContext = $('[data-app-name="testapp"]');
+  var appContext = $('[data-app-name="sandbox-app"]');
 
   /* Generate Agave API docs */
   window.addEventListener('Agave::ready', function() {

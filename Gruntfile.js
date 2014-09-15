@@ -5,7 +5,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   var config = {
-    appName: 'testapp',
+    appName: 'sandbox-app',
     app: 'app',
     dist: 'dist'
   };
