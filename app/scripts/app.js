@@ -1,12 +1,19 @@
 (function(window, $, undefined) {
   'use strict';
 
+  console.log('Hello, testapp!');
+
+  var appContext = $('[data-app-name="testapp"]');
+
+  /* Generate Agave API docs */
   window.addEventListener('Agave::ready', function() {
     var Agave, help, helpItem, helpDetail, methods, methodDetail;
 
     Agave = window.Agave;
 
-    help = $('.api-help');
+    appContext.html('<h2>Hello AIP Science App &plus; Agave API!</h2><div class="api-help list-group"></div><hr><div class="api-info"></div><br>');
+
+    help = $('.api-help', appContext);
 
     $.each(Agave.api.apisArray, function(i, api) {
       helpItem = $('<a class="list-group-item">');
@@ -31,10 +38,10 @@
       helpItem.append(helpDetail.hide());
     });
 
-    $('.api-help > a').on('click', function() {
+    $('.api-help > a', appContext).on('click', function() {
       if (! $(this).hasClass('list-group-item-info')) {
         // close other
-        $('.api-help > a.list-group-item-info').removeClass('list-group-item-info').find('.fa').toggleClass('fa-toggle-up fa-toggle-down').end().find('.api-help-detail').slideToggle();
+        $('.api-help > a.list-group-item-info', appContext).removeClass('list-group-item-info').find('.fa').toggleClass('fa-toggle-up fa-toggle-down').end().find('.api-help-detail').slideToggle();
       }
 
       $(this).toggleClass('list-group-item-info');
@@ -42,12 +49,10 @@
       $('.api-help-detail', this).slideToggle();
     });
 
-    var info = $('.api-info');
+    var info = $('.api-info', appContext);
     info.addClass('text-center');
     info.append('<p>' + Agave.api.info.title + ': ' + Agave.api.info.description + '</p>');
     info.append('<p><a href="mailto:' + Agave.api.info.contact + '">Contact</a> | <a href="' + Agave.api.info.license + '">License</a> | <a href="' + Agave.api.info.license + '">Terms of use</a></p>');
-
-
   });
 
 })(window, jQuery);
